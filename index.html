@@ -1,0 +1,383 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<p>Welcome to the Carnot-Trringo API! You can use our API to access Carnot-Trringo API endpoints, which is used to transmit accept data from Trringo.</p>
+
+<p>You can view code examples to access the API in the dark area to the right.</p>
+
+<h1 id="authentication">Authentication</h1>
+
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"api_endpoint_here"</span>
+  -H <span class="s2">"Apikey: &lt;api_key&gt;"</span>
+  -H <span class="s2">"Authorization: Token &lt;auth_token&gt;"</span>
+</code></pre>
+
+<blockquote>
+<p>Make sure to replace <code class="prettyprint">&lt;api_key&gt;</code> with your API key and <code class="prettyprint">&lt;auth_token&gt;</code> with your Auth Token</p>
+</blockquote>
+
+<p>Carnot uses API keys to allow access to the API. You can get a new API key by writing to us at prathamesh1729@gmail.com</p>
+
+<p>The API key must be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code class="prettyprint">Apikey: &lt;api_key&gt;</code></p>
+
+<p>Apart from the API key all the endpoints that require user authentication require a Token. The token must be supplied in a header that looks as follows:</p>
+
+<p><code class="prettyprint">Authorization: Token &lt;auth_token&gt;</code></p>
+
+<aside class="notice">
+You must replace <code>&lt;api_key&gt;</code> with your personal API key. You must replace <code>&lt;auth_token&gt;</code> with the user&rsquo;s auth token.
+</aside>
+
+<h1 id="orders">Orders</h1>
+
+<h2 id="start-of-order">Start of Order</h2>
+<pre class="highlight shell"><code>
+Send Start Time.
+
+curl <span class="s2">"http://&lt;BASE_URL&gt;/startOrder/"</span>
+  -F <span class="nv">orderID</span><span class="o">=</span>1
+  -F <span class="nv">sessionID</span><span class="o">=</span>1
+  -F <span class="nv">startTime</span><span class="o">=</span>1521115763
+  -F <span class="nv">tractorID</span><span class="o">=</span>152763ABdjdkga32342
+  -H <span class="s2">"Apikey: &lt;api_key&gt;"</span>
+  -H <span class="s2">"Authorization: Token &lt;auth_token&gt;"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint starts a particular order.</p>
+
+<h3 id="http-request-post-starttime">HTTP Request (POST startTime)</h3>
+
+<p><code class="prettyprint">POST http://&lt;BASE_URL&gt;/startOrder/</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderID</td>
+<td>The ID of the order whose startTime is to be posted.</td>
+</tr>
+<tr>
+<td>sessionID</td>
+<td>The ID of the session whose startTime is to be posted.</td>
+</tr>
+<tr>
+<td>startTime</td>
+<td>Order start time.</td>
+</tr>
+<tr>
+<td>tractorID</td>
+<td>Tractor chassis number</td>
+</tr>
+</tbody></table>
+
+<h2 id="end-of-order">End of Order</h2>
+<pre class="highlight shell"><code>
+Send Start Time.
+
+curl <span class="s2">"http://&lt;BASE_URL&gt;/endOrder/"</span>
+  -F <span class="nv">orderID</span><span class="o">=</span>1
+  -F <span class="nv">sessionID</span><span class="o">=</span>1
+  -F <span class="nv">endTime</span><span class="o">=</span>1521115763
+  -F <span class="nv">tractorID</span><span class="o">=</span>152763ABdjdkga32342
+  -H <span class="s2">"Apikey: &lt;api_key&gt;"</span>
+  -H <span class="s2">"Authorization: Token &lt;auth_token&gt;"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"response"</span><span class="p">:</span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint ends a particular order.</p>
+
+<h3 id="http-request-post-endtime">HTTP Request (POST endTime)</h3>
+
+<p><code class="prettyprint">POST http://&lt;BASE_URL&gt;/endOrder/</code></p>
+
+<h1 id="tractor">Tractor</h1>
+
+<h2 id="alerts">Alerts</h2>
+
+<blockquote>
+<p>The data will be posted to the Trringo API in the following JSON format:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"tactorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Idling"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18.8269788,73.2045857"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"tactorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unauthorised Work"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18.8269788,73.2045857"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint sends data to Trringo for Alerts to be registered.</p>
+
+<h3 id="http-request-post-alertdata">HTTP Request (POST alertData)</h3>
+
+<p><code class="prettyprint">POST URL Yet to be finalised.</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>alert</td>
+<td>Type of Alert.</td>
+</tr>
+<tr>
+<td>endTime</td>
+<td>Alert activity end time.</td>
+</tr>
+<tr>
+<td>startTime</td>
+<td>Alert activity start time.</td>
+</tr>
+<tr>
+<td>tractorID</td>
+<td>Tractor chassis number</td>
+</tr>
+<tr>
+<td>location</td>
+<td>Latitude and Longitude for the Alert.</td>
+</tr>
+</tbody></table>
+
+<h2 id="reports">Reports</h2>
+
+<blockquote>
+<p>The data will be posted to the Trringo API in the following JSON format.  This is the End of Journey Report: </p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"tactorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"reportData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"KPI-1"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"KPI-2"</span><span class="p">:</span><span class="w"> </span><span class="mi">103</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request-post-reports">HTTP Request (POST reports)</h3>
+
+<p><code class="prettyprint">POST URL Yet to be finalised.</code></p>
+
+          <h1 id="errors">Errors</h1>
+
+<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
+
+<p>The Carnot API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request &ndash; Your request sucks</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized &ndash; Your API key is wrong</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden &ndash; The resource requested is hidden for administrators only</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found &ndash; The specified resource could not be found</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed &ndash; You tried to access a resource with an invalid method</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t supported. Supported format is JSON</td>
+</tr>
+<tr>
+<td>410</td>
+<td>Gone &ndash; The resource requested has been removed from our servers</td>
+</tr>
+<tr>
+<td>418</td>
+<td>Boring Request &ndash; Your request is good. But the server is too bored to answer.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests &ndash; You are requesting for too many resources. Slow down!</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
