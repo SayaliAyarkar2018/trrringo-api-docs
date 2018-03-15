@@ -33,7 +33,7 @@ curl "api_endpoint_here"
 
 > Make sure to replace `<api_key>` with your API key and `<auth_token>` with your Auth Token
 
-Carnot uses API keys to allow access to the API. You can get a new API key by writing to us at prathamesh1729@gmail.com
+Carnot uses API keys to allow access to the API. You can get a new API key by writing to us at chakshu.gautam@carnot.co.in
 
 The API key must be included in all API requests to the server in a header that looks like the following:
 
