@@ -174,8 +174,8 @@ location  | Latitude and Longitude for the Alert.
 {
   "tactorID": "152763ABdjdkga32342",
   "reportData": {
-    "KPI-1: 23,
-    "KPI-2: 103
+    "KPI-1": 23,
+    "KPI-2": 103
   }
 }
 ```
