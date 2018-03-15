@@ -130,7 +130,7 @@ This endpoint ends a particular order.
 
 ```json
 {
-  "tactorID": "152763ABdjdkga32342",
+  "tractorID": "152763ABdjdkga32342",
   "alert": "Idling",
   "startTime": 1521115763,
   "endTime": 1521115763,
@@ -141,7 +141,7 @@ This endpoint ends a particular order.
 
 ```json
 {
-  "tactorID": "152763ABdjdkga32342",
+  "tractorID": "152763ABdjdkga32342",
   "alert": "Unauthorised Work",
   "startTime": 1521115763,
   "endTime": 1521115763,
