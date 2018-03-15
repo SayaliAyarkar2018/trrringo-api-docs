@@ -172,7 +172,7 @@ location  | Latitude and Longitude for the Alert.
 
 ```json
 {
-  "tactorID": "152763ABdjdkga32342",
+  "tractorID": "152763ABdjdkga32342",
   "reportData": {
     "KPI-1": 23,
     "KPI-2": 103
