@@ -158,11 +158,14 @@ You must replace <code>&lt;api_key&gt;</code> with your personal API key. You mu
 <pre class="highlight shell"><code>
 Send Start Time.
 
-curl <span class="s2">"http://&lt;BASE_URL&gt;/startOrder/"</span>
-  -F <span class="nv">orderID</span><span class="o">=</span>1
-  -F <span class="nv">sessionID</span><span class="o">=</span>1
-  -F <span class="nv">startTime</span><span class="o">=</span>1521115763
-  -F <span class="nv">tractorID</span><span class="o">=</span>152763ABdjdkga32342
+curl -X PUT <span class="s2">"http://&lt;BASE_URL&gt;/order_started/"</span>
+  -d <span class="nv">order_id</span><span class="o">=</span>1
+  -d <span class="nv">start_time</span><span class="o">=</span>1521115763
+  -d <span class="nv">device_id</span><span class="o">=</span>152763ABdjdkga32342
+  -d <span class="nv">location_x</span><span class="o">=</span>18.8269788,
+  -d <span class="nv">localtion_y</span><span class="o">=</span>73.2045857
+  -d <span class="nv">localtion_accuracy</span><span class="o">=</span>0.5
+  -d <span class="nv">implement_type</span><span class="o">=</span>thresher
   -H <span class="s2">"Apikey: &lt;api_key&gt;"</span>
   -H <span class="s2">"Authorization: Token &lt;auth_token&gt;"</span>
 </code></pre>
@@ -180,7 +183,7 @@ curl <span class="s2">"http://&lt;BASE_URL&gt;/startOrder/"</span>
 
 <h3 id="http-request-post-starttime">HTTP Request (POST startTime)</h3>
 
-<p><code class="prettyprint">POST http://&lt;BASE_URL&gt;/startOrder/</code></p>
+<p><code class="prettyprint">POST http://&lt;BASE_URL&gt;/order-started/</code></p>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -191,20 +194,32 @@ curl <span class="s2">"http://&lt;BASE_URL&gt;/startOrder/"</span>
 </tr>
 </thead><tbody>
 <tr>
-<td>orderID</td>
+<td>order_id</td>
+<td>Tractor chassis number.</td>
+</tr>
+<tr>
+<td>device_id</td>
 <td>The ID of the order whose startTime is to be posted.</td>
 </tr>
 <tr>
-<td>sessionID</td>
-<td>The ID of the session whose startTime is to be posted.</td>
-</tr>
-<tr>
-<td>startTime</td>
+<td>start_time</td>
 <td>Order start time.</td>
 </tr>
 <tr>
-<td>tractorID</td>
-<td>Tractor chassis number</td>
+<td>location_x</td>
+<td>Order localtion Latitude</td>
+</tr>
+<tr>
+<td>location_y</td>
+<td>Order localtion Longitude</td>
+</tr>
+<tr>
+<td>location_accuracy</td>
+<td>Order location accuracy in KMs</td>
+</tr>
+<tr>
+<td>implement_type</td>
+<td>Implement type identifier</td>
 </tr>
 </tbody></table>
 
@@ -212,11 +227,9 @@ curl <span class="s2">"http://&lt;BASE_URL&gt;/startOrder/"</span>
 <pre class="highlight shell"><code>
 Send Start Time.
 
-curl <span class="s2">"http://&lt;BASE_URL&gt;/endOrder/"</span>
-  -F <span class="nv">orderID</span><span class="o">=</span>1
-  -F <span class="nv">sessionID</span><span class="o">=</span>1
-  -F <span class="nv">endTime</span><span class="o">=</span>1521115763
-  -F <span class="nv">tractorID</span><span class="o">=</span>152763ABdjdkga32342
+curl -X PUT <span class="s2">"http://&lt;BASE_URL&gt;/order-stopped/"</span>
+  -d <span class="nv">order_id</span><span class="o">=</span>1
+  -d <span class="nv">order_stop_time</span><span class="o">=</span>1521115763
   -H <span class="s2">"Apikey: &lt;api_key&gt;"</span>
   -H <span class="s2">"Authorization: Token &lt;auth_token&gt;"</span>
 </code></pre>
@@ -234,7 +247,7 @@ curl <span class="s2">"http://&lt;BASE_URL&gt;/endOrder/"</span>
 
 <h3 id="http-request-post-endtime">HTTP Request (POST endTime)</h3>
 
-<p><code class="prettyprint">POST http://&lt;BASE_URL&gt;/endOrder/</code></p>
+<p><code class="prettyprint">POST http://&lt;BASE_URL&gt;/oder-stopped/</code></p>
 
 <h1 id="tractor">Tractor</h1>
 
@@ -244,19 +257,21 @@ curl <span class="s2">"http://&lt;BASE_URL&gt;/endOrder/"</span>
 <p>The data will be posted to the Trringo API in the following JSON format:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"tractorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"alert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Idling"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18.8269788,73.2045857"</span><span class="w">
+  </span><span class="nt">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"alert_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Idling"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"location_x"</span><span class="p">:</span><span class="w"> </span><span class="mf">18.8269788</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"localtion_y"</span><span class="p">:</span><span class="w"> </span><span class="mf">73.2045857</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"tractorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"alert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unauthorised Work"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"startTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"endTime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18.8269788,73.2045857"</span><span class="w">
+  </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"location_x"</span><span class="p">:</span><span class="w"> </span><span class="mf">18.8269788</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"localtion_y"</span><span class="p">:</span><span class="w"> </span><span class="mf">73.2045857</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -275,24 +290,28 @@ curl <span class="s2">"http://&lt;BASE_URL&gt;/endOrder/"</span>
 </tr>
 </thead><tbody>
 <tr>
-<td>alert</td>
-<td>Type of Alert.</td>
+<td>alert_type</td>
+<td>Type of Alert - (Idling/Unauthorised Work)</td>
 </tr>
 <tr>
-<td>endTime</td>
+<td>end_time</td>
 <td>Alert activity end time.</td>
 </tr>
 <tr>
-<td>startTime</td>
+<td>start_time</td>
 <td>Alert activity start time.</td>
 </tr>
 <tr>
-<td>tractorID</td>
+<td>device_id</td>
 <td>Tractor chassis number</td>
 </tr>
 <tr>
-<td>location</td>
-<td>Latitude and Longitude for the Alert.</td>
+<td>location_x</td>
+<td>Alert localtion Latitude</td>
+</tr>
+<tr>
+<td>location_y</td>
+<td>Alert localtion Longitude</td>
 </tr>
 </tbody></table>
 
@@ -302,8 +321,8 @@ curl <span class="s2">"http://&lt;BASE_URL&gt;/endOrder/"</span>
 <p>The data will be posted to the Trringo API in the following JSON format.  This is the End of Journey Report: </p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"tractorID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"reportData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"report_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"KPI-1"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
     </span><span class="nt">"KPI-2"</span><span class="p">:</span><span class="w"> </span><span class="mi">103</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -313,6 +332,32 @@ curl <span class="s2">"http://&lt;BASE_URL&gt;/endOrder/"</span>
 <h3 id="http-request-post-reports">HTTP Request (POST reports)</h3>
 
 <p><code class="prettyprint">POST URL Yet to be finalised.</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>device_id</td>
+<td>Tractor chassis number</td>
+</tr>
+<tr>
+<td>report_data</td>
+<td>JSON object javing key value pairs for report</td>
+</tr>
+<tr>
+<td>KPI-1</td>
+<td>Sample KPI data point</td>
+</tr>
+<tr>
+<td>KPI-2</td>
+<td>Sampel KPI data point</td>
+</tr>
+</tbody></table>
 
           <h1 id="errors">Errors</h1>
 
