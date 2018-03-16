@@ -81,7 +81,7 @@ This endpoint starts a particular order.
 
 ### HTTP Request (POST startTime)
 
-`POST http://<BASE_URL>/order-started/`
+`PUT http://<BASE_URL>/order-started/`
 
 ### URL Parameters
 
@@ -122,7 +122,7 @@ This endpoint ends a particular order.
 
 ### HTTP Request (POST endTime)
 
-`POST http://<BASE_URL>/oder-stopped/`
+`PUT http://<BASE_URL>/oder-stopped/`
 
 
 
