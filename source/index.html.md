@@ -79,7 +79,7 @@ curl -X PUT "http://<BASE_URL>/order_started/"
 
 This endpoint starts a particular order.
 
-### HTTP Request (POST startTime)
+### HTTP Request (PUT start_time)
 
 `PUT http://<BASE_URL>/order-started/`
 
@@ -120,7 +120,7 @@ curl -X PUT "http://<BASE_URL>/order-stopped/"
 
 This endpoint ends a particular order.
 
-### HTTP Request (POST endTime)
+### HTTP Request (PUT end_time)
 
 `PUT http://<BASE_URL>/oder-stopped/`
 
