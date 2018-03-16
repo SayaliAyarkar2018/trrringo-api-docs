@@ -56,11 +56,14 @@ You must replace <code>&lt;api_key&gt;</code> with your personal API key. You mu
 
 Send Start Time.
 
-curl "http://<BASE_URL>/startOrder/"
-  -F orderID=1
-  -F sessionID=1
-  -F startTime=1521115763
-  -F tractorID=152763ABdjdkga32342
+curl -X PUT "http://<BASE_URL>/order_started/"
+  -d order_id=1
+  -d start_time=1521115763
+  -d device_id=152763ABdjdkga32342
+  -d location_x=18.8269788,
+  -d localtion_y=73.2045857
+  -d localtion_accuracy=0.5
+  -d implement_type=thresher
   -H "Apikey: <api_key>"
   -H "Authorization: Token <auth_token>"
 ```
@@ -78,16 +81,19 @@ This endpoint starts a particular order.
 
 ### HTTP Request (POST startTime)
 
-`POST http://<BASE_URL>/startOrder/`
+`POST http://<BASE_URL>/order-started/`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-orderID   | The ID of the order whose startTime is to be posted.
-sessionID | The ID of the session whose startTime is to be posted.
-startTime | Order start time.
-tractorID | Tractor chassis number
+order_id   | Tractor chassis number.
+device_id  | The ID of the order whose startTime is to be posted.
+start_time | Order start time.
+location_x  | Order localtion Latitude 
+location_y  | Order localtion Longitude
+location_accuracy | Order location accuracy in KMs
+implement_type | Implement type identifier
 
 
 ## End of Order
@@ -96,11 +102,9 @@ tractorID | Tractor chassis number
 
 Send Start Time.
 
-curl "http://<BASE_URL>/endOrder/"
-  -F orderID=1
-  -F sessionID=1
-  -F endTime=1521115763
-  -F tractorID=152763ABdjdkga32342
+curl -X PUT "http://<BASE_URL>/order-stopped/"
+  -d order_id=1
+  -d order_stop_time=1521115763
   -H "Apikey: <api_key>"
   -H "Authorization: Token <auth_token>"
 ```
@@ -118,7 +122,7 @@ This endpoint ends a particular order.
 
 ### HTTP Request (POST endTime)
 
-`POST http://<BASE_URL>/endOrder/`
+`POST http://<BASE_URL>/oder-stopped/`
 
 
 
@@ -130,22 +134,24 @@ This endpoint ends a particular order.
 
 ```json
 {
-  "tractorID": "152763ABdjdkga32342",
-  "alert": "Idling",
-  "startTime": 1521115763,
-  "endTime": 1521115763,
-  "location": "18.8269788,73.2045857"
+  "device_id": "152763ABdjdkga32342",
+  "alert_type": "Idling",
+  "start_time": 1521115763,
+  "end_time": 1521115763,
+  "location_x": 18.8269788,
+  "localtion_y": 73.2045857
 }
 ```
 
 
 ```json
 {
-  "tractorID": "152763ABdjdkga32342",
+  "device_id": "152763ABdjdkga32342",
   "alert": "Unauthorised Work",
-  "startTime": 1521115763,
-  "endTime": 1521115763,
-  "location": "18.8269788,73.2045857"
+  "start_time": 1521115763,
+  "end_time": 1521115763,
+  "location_x": 18.8269788,
+  "localtion_y": 73.2045857
 }
 ```
 
@@ -159,11 +165,12 @@ This endpoint sends data to Trringo for Alerts to be registered.
 
 Parameter | Description
 --------- | -----------
-alert     | Type of Alert.
-endTime   | Alert activity end time.
-startTime | Alert activity start time.
-tractorID | Tractor chassis number
-location  | Latitude and Longitude for the Alert.
+alert_type     | Type of Alert - (Idling/Unauthorised Work)
+end_time   | Alert activity end time.
+start_time | Alert activity start time.
+device_id | Tractor chassis number
+location_x  | Alert localtion Latitude 
+location_y  | Alert localtion Longitude
 
 
 ## Reports
@@ -172,8 +179,8 @@ location  | Latitude and Longitude for the Alert.
 
 ```json
 {
-  "tractorID": "152763ABdjdkga32342",
-  "reportData": {
+  "device_id": "152763ABdjdkga32342",
+  "report_data": {
     "KPI-1": 23,
     "KPI-2": 103
   }
@@ -183,3 +190,12 @@ location  | Latitude and Longitude for the Alert.
 ### HTTP Request (POST reports)
 
 `POST URL Yet to be finalised.`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+device_id | Tractor chassis number
+report_data | JSON object javing key value pairs for report
+KPI-1  | Sample KPI data point
+KPI-2  | Sampel KPI data point
