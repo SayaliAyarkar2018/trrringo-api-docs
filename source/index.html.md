@@ -139,6 +139,7 @@ This endpoint ends a particular order.
   "instrumented_device_id": "152763ABdjdkga32342",
   "iot_device_id": 23,
   "category": "Unauthorised Work",
+  "alert_type": 1,
   "data": {
     "start_time": 1521115763,
     "end_time": 1521115763,
@@ -153,6 +154,7 @@ This endpoint ends a particular order.
   "instrumented_device_id": "152763ABdjdkga32342",
   "iot_device_id": 23,
   "category": "Unauthorised Work",
+  "alert_type": 1,
   "data": {
     "start_time": 1521115763,
     "end_time": 1521115763,
