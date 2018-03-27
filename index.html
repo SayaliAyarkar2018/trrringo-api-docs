@@ -161,7 +161,8 @@ Send Start Time.
 curl -X PUT <span class="s2">"http://&lt;BASE_URL&gt;/order_started/"</span>
   -d <span class="nv">order_id</span><span class="o">=</span>1
   -d <span class="nv">start_time</span><span class="o">=</span>1521115763
-  -d <span class="nv">device_id</span><span class="o">=</span>152763ABdjdkga32342
+  -d <span class="nv">instrument_device_id</span><span class="o">=</span>152763ABdjdkga32342
+  -d <span class="nv">iot_device_id</span><span class="o">=</span>23
   -d <span class="nv">location_x</span><span class="o">=</span>18.8269788,
   -d <span class="nv">localtion_y</span><span class="o">=</span>73.2045857
   -d <span class="nv">localtion_accuracy</span><span class="o">=</span>0.5
@@ -198,8 +199,12 @@ curl -X PUT <span class="s2">"http://&lt;BASE_URL&gt;/order_started/"</span>
 <td>Tractor chassis number.</td>
 </tr>
 <tr>
-<td>device_id</td>
-<td>The ID of the order whose startTime is to be posted.</td>
+<td>instrumented_device_id</td>
+<td>Tractor chassis number</td>
+</tr>
+<tr>
+<td>iot_device_id</td>
+<td>IOT device number</td>
 </tr>
 <tr>
 <td>start_time</td>
@@ -257,21 +262,27 @@ curl -X PUT <span class="s2">"http://&lt;BASE_URL&gt;/order-stopped/"</span>
 <p>The data will be posted to the Trringo API in the following JSON format:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"alert_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Idling"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"location_x"</span><span class="p">:</span><span class="w"> </span><span class="mf">18.8269788</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"localtion_y"</span><span class="p">:</span><span class="w"> </span><span class="mf">73.2045857</span><span class="w">
-</span><span class="p">}</span><span class="w">
+  </span><span class="nt">"instrumented_device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"iot_device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="w">
+  </span><span class="s2">"category"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Unauthorised Work"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"location_x"</span><span class="p">:</span><span class="w"> </span><span class="mf">18.8269788</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"localtion_y"</span><span class="p">:</span><span class="w"> </span><span class="mf">73.2045857</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"alert"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unauthorised Work"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"location_x"</span><span class="p">:</span><span class="w"> </span><span class="mf">18.8269788</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"localtion_y"</span><span class="p">:</span><span class="w"> </span><span class="mf">73.2045857</span><span class="w">
+  </span><span class="nt">"instrumented_device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"iot_device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="w">
+  </span><span class="s2">"category"</span><span class="err">:</span><span class="w"> </span><span class="s2">"Unauthorised Work"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"location_x"</span><span class="p">:</span><span class="w"> </span><span class="mf">18.8269788</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"localtion_y"</span><span class="p">:</span><span class="w"> </span><span class="mf">73.2045857</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -290,8 +301,24 @@ curl -X PUT <span class="s2">"http://&lt;BASE_URL&gt;/order-stopped/"</span>
 </tr>
 </thead><tbody>
 <tr>
+<td>category</td>
+<td>Alert categories(Idling/Unauthorised_Work/Geofence)</td>
+</tr>
+<tr>
 <td>alert_type</td>
-<td>Type of Alert - (Idling/Unauthorised Work)</td>
+<td>A subtype of the above category. (Will be defined when needed. Currenltly 1 will be sent)</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Data related to the alert. (Will vary but the fields below will be there for all of type. But there will be additional data for all of them.)</td>
+</tr>
+<tr>
+<td>instrumented_device_id</td>
+<td>Tractor chassis number</td>
+</tr>
+<tr>
+<td>iot_device_id</td>
+<td>IOT device number</td>
 </tr>
 <tr>
 <td>end_time</td>
@@ -302,16 +329,12 @@ curl -X PUT <span class="s2">"http://&lt;BASE_URL&gt;/order-stopped/"</span>
 <td>Alert activity start time.</td>
 </tr>
 <tr>
-<td>device_id</td>
-<td>Tractor chassis number</td>
-</tr>
-<tr>
 <td>location_x</td>
-<td>Alert localtion Latitude</td>
+<td>Alert localtion Latitude.</td>
 </tr>
 <tr>
 <td>location_y</td>
-<td>Alert localtion Longitude</td>
+<td>Alert localtion Longitude.</td>
 </tr>
 </tbody></table>
 
@@ -321,8 +344,9 @@ curl -X PUT <span class="s2">"http://&lt;BASE_URL&gt;/order-stopped/"</span>
 <p>The data will be posted to the Trringo API in the following JSON format.  This is the End of Journey Report: </p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"report_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nt">"instrumented_device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"iot_device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="w">
+  </span><span class="s2">"report_data"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"KPI-1"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
     </span><span class="nt">"KPI-2"</span><span class="p">:</span><span class="w"> </span><span class="mi">103</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -342,8 +366,12 @@ curl -X PUT <span class="s2">"http://&lt;BASE_URL&gt;/order-stopped/"</span>
 </tr>
 </thead><tbody>
 <tr>
-<td>device_id</td>
+<td>instrumented_device_id</td>
 <td>Tractor chassis number</td>
+</tr>
+<tr>
+<td>iot_device_id</td>
+<td>IOT device number</td>
 </tr>
 <tr>
 <td>report_data</td>
