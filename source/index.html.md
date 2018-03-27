@@ -61,7 +61,7 @@ curl -X PUT "http://<BASE_URL>/order_started/"
   -d start_time=1521115763
   -d instrument_device_id=152763ABdjdkga32342
   -d iot_device_id=23
-  -d location_x=18.8269788,
+  -d location_x=18.8269788
   -d localtion_y=73.2045857
   -d localtion_accuracy=0.5
   -d implement_type=thresher
@@ -137,7 +137,7 @@ This endpoint ends a particular order.
 ```json
 {
   "instrumented_device_id": "152763ABdjdkga32342",
-  "iot_device_id": 23
+  "iot_device_id": 23,
   "category": "Unauthorised Work",
   "data": {
     "start_time": 1521115763,
@@ -151,7 +151,7 @@ This endpoint ends a particular order.
 ```json
 {
   "instrumented_device_id": "152763ABdjdkga32342",
-  "iot_device_id": 23
+  "iot_device_id": 23,
   "category": "Unauthorised Work",
   "data": {
     "start_time": 1521115763,
@@ -191,7 +191,7 @@ location_y  | Alert localtion Longitude.
 ```json
 {
   "instrumented_device_id": "152763ABdjdkga32342",
-  "iot_device_id": 23
+  "iot_device_id": 23,
   "report_data": {
     "KPI-1": 23,
     "KPI-2": 103
