@@ -59,7 +59,8 @@ Send Start Time.
 curl -X PUT "http://<BASE_URL>/order_started/"
   -d order_id=1
   -d start_time=1521115763
-  -d device_id=152763ABdjdkga32342
+  -d instrument_device_id=152763ABdjdkga32342
+  -d iot_device_id=23
   -d location_x=18.8269788,
   -d localtion_y=73.2045857
   -d localtion_accuracy=0.5
@@ -88,7 +89,8 @@ This endpoint starts a particular order.
 Parameter | Description
 --------- | -----------
 order_id   | Tractor chassis number.
-device_id  | The ID of the order whose startTime is to be posted.
+instrumented_device_id | Tractor chassis number
+iot_device_id | IOT device number
 start_time | Order start time.
 location_x  | Order localtion Latitude 
 location_y  | Order localtion Longitude
@@ -134,24 +136,30 @@ This endpoint ends a particular order.
 
 ```json
 {
-  "device_id": "152763ABdjdkga32342",
-  "alert_type": "Idling",
-  "start_time": 1521115763,
-  "end_time": 1521115763,
-  "location_x": 18.8269788,
-  "localtion_y": 73.2045857
-}
+  "instrumented_device_id": "152763ABdjdkga32342",
+  "iot_device_id": 23
+  "category": "Unauthorised Work",
+  "data": {
+    "start_time": 1521115763,
+    "end_time": 1521115763,
+    "location_x": 18.8269788,
+    "localtion_y": 73.2045857
+  }
 ```
 
 
 ```json
 {
-  "device_id": "152763ABdjdkga32342",
-  "alert": "Unauthorised Work",
-  "start_time": 1521115763,
-  "end_time": 1521115763,
-  "location_x": 18.8269788,
-  "localtion_y": 73.2045857
+  "instrumented_device_id": "152763ABdjdkga32342",
+  "iot_device_id": 23
+  "category": "Unauthorised Work",
+  "data": {
+    "start_time": 1521115763,
+    "end_time": 1521115763,
+    "location_x": 18.8269788,
+    "localtion_y": 73.2045857
+  }
+
 }
 ```
 
@@ -165,12 +173,15 @@ This endpoint sends data to Trringo for Alerts to be registered.
 
 Parameter | Description
 --------- | -----------
-alert_type     | Type of Alert - (Idling/Unauthorised Work)
+category  | Alert categories(Idling/Unauthorised_Work/Geofence)
+alert_type | A subtype of the above category. (Will be defined when needed. Currenltly 1 will be sent) 
+data | Data related to the alert. (Will vary but the fields below will be there for all of type. But there will be additional data for all of them.)
+instrumented_device_id | Tractor chassis number
+iot_device_id | IOT device number
 end_time   | Alert activity end time.
 start_time | Alert activity start time.
-device_id | Tractor chassis number
-location_x  | Alert localtion Latitude 
-location_y  | Alert localtion Longitude
+location_x  | Alert localtion Latitude.
+location_y  | Alert localtion Longitude.
 
 
 ## Reports
@@ -179,7 +190,8 @@ location_y  | Alert localtion Longitude
 
 ```json
 {
-  "device_id": "152763ABdjdkga32342",
+  "instrumented_device_id": "152763ABdjdkga32342",
+  "iot_device_id": 23
   "report_data": {
     "KPI-1": 23,
     "KPI-2": 103
@@ -195,7 +207,8 @@ location_y  | Alert localtion Longitude
 
 Parameter | Description
 --------- | -----------
-device_id | Tractor chassis number
+instrumented_device_id | Tractor chassis number
+iot_device_id | IOT device number
 report_data | JSON object javing key value pairs for report
 KPI-1  | Sample KPI data point
 KPI-2  | Sampel KPI data point
