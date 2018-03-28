@@ -60,7 +60,6 @@ curl -X PUT "http://<BASE_URL>/order_started/"
   -d order_id=1
   -d start_time=1521115763
   -d instrument_device_id=152763ABdjdkga32342
-  -d iot_device_id=23
   -d location_x=18.8269788
   -d localtion_y=73.2045857
   -d localtion_accuracy=0.5
@@ -90,7 +89,6 @@ Parameter | Description
 --------- | -----------
 order_id   | Tractor chassis number.
 instrumented_device_id | Tractor chassis number
-iot_device_id | IOT device number
 start_time | Order start time.
 location_x  | Order localtion Latitude 
 location_y  | Order localtion Longitude
@@ -122,6 +120,13 @@ curl -X PUT "http://<BASE_URL>/order-stopped/"
 
 This endpoint ends a particular order.
 
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+order_id   | Tractor chassis number.
+order_stop_time | Order end time.
+
 ### HTTP Request (PUT end_time)
 
 `PUT http://<BASE_URL>/oder-stopped/`
@@ -130,6 +135,26 @@ This endpoint ends a particular order.
 
 # Tractor
 
+## Register
+
+> The data will be posted to the Trringo API in the following JSON format:
+```json
+{
+  "instrumented_device_id": "152763ABdjdkga32342",
+  "iot_device_id": 23,
+  }
+```
+### HTTP Request (POST alertData)
+
+`POST https://agg.trringology.com/iot/v2/register`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+instrumented_device_id | Tractor chassis number
+iot_device_id | IOT device number
+
 ## Alerts
 
 > The data will be posted to the Trringo API in the following JSON format:
@@ -137,9 +162,7 @@ This endpoint ends a particular order.
 ```json
 {
   "instrumented_device_id": "152763ABdjdkga32342",
-  "iot_device_id": 23,
-  "category": "Unauthorised Work",
-  "alert_type": 1,
+  "category": "Unauthorised Work - 1",
   "data": {
     "start_time": 1521115763,
     "end_time": 1521115763,
@@ -152,7 +175,6 @@ This endpoint ends a particular order.
 ```json
 {
   "instrumented_device_id": "152763ABdjdkga32342",
-  "iot_device_id": 23,
   "category": "Unauthorised Work",
   "alert_type": 1,
   "data": {
@@ -169,17 +191,15 @@ This endpoint sends data to Trringo for Alerts to be registered.
 
 ### HTTP Request (POST alertData)
 
-`POST URL Yet to be finalised.`
+`POST https://agg.trringology.com/iot/v2/alerts`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-category  | Alert categories(Idling/Unauthorised_Work/Geofence)
-alert_type | A subtype of the above category. (Will be defined when needed. Currenltly 1 will be sent) 
+category  | Alert categories(Idling/Unauthorised_Work/Geofence) - (Alert Type) A subtype of the above category. (Will be defined when needed. Currenltly 1 will be sent) 
 data | Data related to the alert. (Will vary but the fields below will be there for all of type. But there will be additional data for all of them.)
 instrumented_device_id | Tractor chassis number
-iot_device_id | IOT device number
 end_time   | Alert activity end time.
 start_time | Alert activity start time.
 location_x  | Alert localtion Latitude.
@@ -193,7 +213,7 @@ location_y  | Alert localtion Longitude.
 ```json
 {
   "instrumented_device_id": "152763ABdjdkga32342",
-  "iot_device_id": 23,
+  "order_id:: 2
   "report_data": {
     "KPI-1": 23,
     "KPI-2": 103
@@ -203,14 +223,14 @@ location_y  | Alert localtion Longitude.
 
 ### HTTP Request (POST reports)
 
-`POST URL Yet to be finalised.`
+`POST https://agg.trringology.com/iot/v2/reports`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
 instrumented_device_id | Tractor chassis number
-iot_device_id | IOT device number
+order_id | Order ID for the report
 report_data | JSON object javing key value pairs for report
 KPI-1  | Sample KPI data point
 KPI-2  | Sampel KPI data point
