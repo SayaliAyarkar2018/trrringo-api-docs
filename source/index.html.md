@@ -59,7 +59,7 @@ Send Start Time.
 curl -X PUT "http://<BASE_URL>/order_started/"
   -d order_id=1
   -d start_time=1521115763
-  -d instrument_device_id=152763ABdjdkga32342
+  -d instrumented_device_id=152763ABdjdkga32342
   -d location_x=18.8269788
   -d localtion_y=73.2045857
   -d localtion_accuracy=0.5
