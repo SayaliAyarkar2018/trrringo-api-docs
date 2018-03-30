@@ -61,8 +61,8 @@ curl -X PUT "http://<BASE_URL>/order_started/"
   -d start_time=1521115763
   -d instrumented_device_id=152763ABdjdkga32342
   -d location_x=18.8269788
-  -d localtion_y=73.2045857
-  -d localtion_accuracy=0.5
+  -d location_y=73.2045857
+  -d location_accuracy=0.5
   -d implement_type=thresher
   -H "Apikey: <api_key>"
   -H "Authorization: Token <auth_token>"
