@@ -213,7 +213,7 @@ location_y  | Alert localtion Longitude.
 ```json
 {
   "instrumented_device_id": "152763ABdjdkga32342",
-  "order_id: 2,
+  "order_id": 2,
   "report_data": {
     "KPI-1": 23,
     "KPI-2": 103
