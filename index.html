@@ -381,12 +381,13 @@ curl -X PUT <span class="s2">"http://&lt;BASE_URL&gt;/order-stopped/"</span>
 <blockquote>
 <p>The data will be posted to the Trringo API in the following JSON format.  This is the End of Journey Report: </p>
 </blockquote>
-<pre class="highlight json"><code><span class="s2">"order_id"</span><span class="err">:</span><span class="w"> </span><span class="mi">123456</span><span class="err">,</span><span class="w">
-  </span><span class="s2">"authorized"</span><span class="err">:</span><span class="w"> </span><span class="mi">1</span><span class="err">,</span><span class="w">
-  </span><span class="s2">"authorized"</span><span class="err">:</span><span class="w"> </span><span class="err">“ORDER_COMPLETE”,</span><span class="w">
-  </span><span class="s2">"instrumented_device_id"</span><span class="err">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="err">,</span><span class="w">
-  </span><span class="s2">"iot_device_id"</span><span class="err">:</span><span class="w"> </span><span class="mi">9</span><span class="err">,</span><span class="w">
-  </span><span class="s2">"report_data"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"authorized"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"authorized"</span><span class="p">:</span><span class="w"> </span><span class="err">“ORDER_COMPLETE”</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"instrumented_device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"iot_device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"report_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"eoa"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.22</span><span class="p">,</span><span class="w">
     </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
     </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
@@ -395,8 +396,8 @@ curl -X PUT <span class="s2">"http://&lt;BASE_URL&gt;/order-stopped/"</span>
     </span><span class="nt">"location_y"</span><span class="p">:</span><span class="w"> </span><span class="mf">73.2045857</span><span class="p">,</span><span class="w">
     </span><span class="nt">"map_x"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">18.8269788</span><span class="p">,</span><span class="w"> </span><span class="mf">18.8269789</span><span class="p">,</span><span class="w"> </span><span class="mf">18.8269790</span><span class="p">],</span><span class="w">
     </span><span class="nt">"map_y"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">73.2045857</span><span class="p">,</span><span class="w"> </span><span class="mf">73.2045858</span><span class="p">,</span><span class="w"> </span><span class="mf">73.2045859</span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="err">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
 <h3 id="http-request-post-reports">HTTP Request (POST reports)</h3>
