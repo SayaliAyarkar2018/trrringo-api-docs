@@ -220,7 +220,7 @@ location_y  | Alert localtion Longitude.
     "eoa": 1.22,
     "start_time": 1521115763,
     "end_time": 1521115763,
-    "duration”: 1521,
+    "duration": 1521,
     "location_x": 18.8269788,
     "location_y": 73.2045857,
     "map_x": [18.8269788, 18.8269789, 18.8269790],
