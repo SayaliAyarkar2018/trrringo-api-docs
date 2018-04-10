@@ -211,14 +211,22 @@ location_y  | Alert localtion Longitude.
 > The data will be posted to the Trringo API in the following JSON format.  This is the End of Journey Report: 
 
 ```json
-{
+"order_id": 123456,
+  "authorized": 1,
+  "authorized": “ORDER_COMPLETE”,
   "instrumented_device_id": "152763ABdjdkga32342",
-  "order_id": 2,
+  "iot_device_id": 9
   "report_data": {
-    "KPI-1": 23,
-    "KPI-2": 103
+    "eoa": 1.22,
+    "start_time": 1521115763,
+    "end_time": 1521115763,
+    "duration”: 1521,
+    "location_x": 18.8269788,
+    "location_y": 73.2045857,
+    "map_x": [18.8269788, 18.8269789, 18.8269790],
+    "map_y": [73.2045857, 73.2045858, 73.2045859]
+
   }
-}
 ```
 
 ### HTTP Request (POST reports)
@@ -232,5 +240,10 @@ Parameter | Description
 instrumented_device_id | Tractor chassis number
 order_id | Order ID for the report
 report_data | JSON object javing key value pairs for report
-KPI-1  | Sample KPI data point
-KPI-2  | Sampel KPI data point
+end_time   | Alert activity end time.
+start_time | Alert activity start time.
+location_x  | Alert localtion Latitude.
+location_y  | Alert localtion Longitude.
+iot_device_id | IOT Device ID sent during registeration.
+map_x | Location x co ordinates list
+map_y | Location y co ordinates list
