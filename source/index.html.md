@@ -214,7 +214,7 @@ location_y  | Alert localtion Longitude.
 {
   "order_id": 123456,
   "authorized": 1,
-  "authorized": “ORDER_COMPLETE”,
+  "authorized": "ORDER_COMPLETE",
   "instrumented_device_id": "152763ABdjdkga32342",
   "iot_device_id": 9,
   "report_data": {
