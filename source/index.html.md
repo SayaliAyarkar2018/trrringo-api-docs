@@ -215,7 +215,7 @@ location_y  | Alert localtion Longitude.
   "authorized": 1,
   "authorized": “ORDER_COMPLETE”,
   "instrumented_device_id": "152763ABdjdkga32342",
-  "iot_device_id": 9
+  "iot_device_id": 9,
   "report_data": {
     "eoa": 1.22,
     "start_time": 1521115763,
@@ -225,7 +225,7 @@ location_y  | Alert localtion Longitude.
     "location_y": 73.2045857,
     "map_x": [18.8269788, 18.8269789, 18.8269790],
     "map_y": [73.2045857, 73.2045858, 73.2045859]
-
+    }
   }
 ```
 
