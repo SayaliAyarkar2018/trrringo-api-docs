@@ -211,7 +211,8 @@ location_y  | Alert localtion Longitude.
 > The data will be posted to the Trringo API in the following JSON format.  This is the End of Journey Report: 
 
 ```json
-"order_id": 123456,
+{
+  "order_id": 123456,
   "authorized": 1,
   "authorized": “ORDER_COMPLETE”,
   "instrumented_device_id": "152763ABdjdkga32342",
@@ -225,8 +226,8 @@ location_y  | Alert localtion Longitude.
     "location_y": 73.2045857,
     "map_x": [18.8269788, 18.8269789, 18.8269790],
     "map_y": [73.2045857, 73.2045858, 73.2045859]
-    }
-  }
+   }
+}
 ```
 
 ### HTTP Request (POST reports)
