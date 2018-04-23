@@ -454,6 +454,81 @@ curl -X PUT <span class="s2">"http://&lt;BASE_URL&gt;/order-stopped/"</span>
 </tr>
 </tbody></table>
 
+<h2 id="odyssey">Odyssey</h2>
+
+<blockquote>
+<p>The data will be posted to the Trringo API in the following JSON format.  This is the End of Odyssey Report: </p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"odyssey_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123456</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"instrumented_device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"152763ABdjdkga32342"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"iot_device_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"report_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mf">23.4</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"time"</span><span class="p">:</span><span class="w"> </span><span class="mi">5798</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"authorised orders"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"unauthorised orders"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"area_ploughed"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1521115763</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="http-request-post-reports">HTTP Request (POST reports)</h3>
+
+<p><code class="prettyprint">POST https://agg.trringology.com/iot/v2/odyssey</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>instrumented_device_id</td>
+<td>Tractor chassis number</td>
+</tr>
+<tr>
+<td>odyssey_id</td>
+<td>Odyssey ID for the report</td>
+</tr>
+<tr>
+<td>report_data</td>
+<td>JSON object javing key value pairs for report</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>Odyssey end time.</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Odyssey start time.</td>
+</tr>
+<tr>
+<td>area_ploughed</td>
+<td>Total area ploughed in the odyssey</td>
+</tr>
+<tr>
+<td>authorised_orders</td>
+<td>Total count of authorised orders in the Odyssey</td>
+</tr>
+<tr>
+<td>unauthorised_orders</td>
+<td>Total count of unauthorised orders in the Odyssey</td>
+</tr>
+<tr>
+<td>time</td>
+<td>Total time for the Odysser</td>
+</tr>
+<tr>
+<td>distance</td>
+<td>Distance travelled by tractor in between farms and and between Hub and farm</td>
+</tr>
+</tbody></table>
+
           <h1 id="errors">Errors</h1>
 
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
