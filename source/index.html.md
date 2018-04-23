@@ -248,3 +248,44 @@ location_y  | Alert localtion Longitude.
 iot_device_id | IOT Device ID sent during registeration.
 map_x | Location x co ordinates list
 map_y | Location y co ordinates list
+
+
+## Odyssey
+
+> The data will be posted to the Trringo API in the following JSON format.  This is the End of Odyssey Report: 
+
+```json
+{
+  "odyssey_id": 123456,
+  "instrumented_device_id": "152763ABdjdkga32342",
+  "iot_device_id": 9,
+  "report_data": {
+    "distance": 23.4,
+    "time": 5798,
+    "authorised orders": 2,
+    "unauthorised orders": 4,
+    "area_ploughed": 2.1,
+    "start_time": 1521115763,
+    "end_time": 1521115763
+   }
+}
+```
+
+### HTTP Request (POST reports)
+
+`POST https://agg.trringology.com/iot/v2/odyssey`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+instrumented_device_id | Tractor chassis number
+odyssey_id | Odyssey ID for the report
+report_data | JSON object javing key value pairs for report
+end_time   | Odyssey end time.
+start_time | Odyssey start time.
+area_ploughed  | Total area ploughed in the odyssey
+authorised_orders  | Total count of authorised orders in the Odyssey
+unauthorised_orders | Total count of unauthorised orders in the Odyssey
+time | Total time for the Odysser
+distance | Distance travelled by tractor in between farms and and between Hub and farm
