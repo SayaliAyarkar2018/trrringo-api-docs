@@ -284,8 +284,8 @@ odyssey_id | Odyssey ID for the report
 report_data | JSON object javing key value pairs for report
 end_time   | Odyssey end time.
 start_time | Odyssey start time.
-area_ploughed  | Total area ploughed in the odyssey
+area_ploughed  | Total area (acres) ploughed in the odyssey
 authorised_orders  | Total count of authorised orders in the Odyssey
 unauthorised_orders | Total count of unauthorised orders in the Odyssey
-time | Total time for the Odysser
-distance | Distance travelled by tractor in between farms and and between Hub and farm
+time | Total time (seconds) for the Odysser
+distance | Distance travelled (Kms) by tractor in between farms and and between Hub and farm
