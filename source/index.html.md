@@ -243,8 +243,8 @@ order_id | Order ID for the report
 report_data | JSON object javing key value pairs for report
 end_time   | Alert activity end time.
 start_time | Alert activity start time.
-location_x  | Alert localtion Latitude.
-location_y  | Alert localtion Longitude.
+location_x  | Farm Location X.
+location_y  | Farm Location Y.
 iot_device_id | IOT Device ID sent during registeration.
 map_x | Location x co ordinates list
 map_y | Location y co ordinates list
