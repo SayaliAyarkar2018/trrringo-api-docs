@@ -167,7 +167,7 @@ iot_device_id | IOT device number
     "start_time": 1521115763,
     "end_time": 1521115763,
     "location_x": 18.8269788,
-    "localtion_y": 73.2045857
+    "location_y": 73.2045857
   }
 ```
 
@@ -181,7 +181,7 @@ iot_device_id | IOT device number
     "start_time": 1521115763,
     "end_time": 1521115763,
     "location_x": 18.8269788,
-    "localtion_y": 73.2045857
+    "location_y": 73.2045857
   }
 
 }
